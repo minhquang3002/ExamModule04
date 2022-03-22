@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+<body>
+<h1><a th:href="@{/index}">Danh sách thành phố</a></h1>
+<button type="button">
+    <a th:href="@{/create}">Thêm thành phố</a>
+</button>
+<table id = "customers">
+    <tr>
+        <th>#</th>
+        <th>Thành phố</th>
+        <th>Quốc gia</th>
+        <th colspan="2"></th>
+    </tr>
+    <tr th:each="c, cSate : cities">
+        <td th:text="${cState.count}"></td>
+        <td th:text="${c.getName()}"></td>
+        <td th:text="${c.getCountry().getName()}"></td>
+        <td><button type="button"><a th:href="@{/edit/__${c.id}__}">Chỉnh sửa</a></button></td>
+        <td><button type="button"><a th:href="@{/delete/__${c.id}__}"
+               onclick="return confirm('Are you sure you want to Delete?')">Xóa</a></button></td>
+    </tr>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id = "customers">
+    <tr>
+        <th>Thành phố</th>
+        <th>Quốc gia</th>
+        <th>Diện tích</th>
+        <th>Dân số</th>
+        <th>GDP</th>
+        <th>Giới thiệu</th>
+    </tr>
+    <tr th:each="c : cities">
+        <td th:text="${c.getName()}"></td>
+        <td th:text="${c.getCountry().getName()}"></td>
+        <td th:text="${c.getArea()}"></td>
+        <td th:text="${c.getGDP()}"></td>
+        <td th:text="${c.getPopulation()}"></td>
+        <td th:text="${c.Description()}"></td>
+    </tr>
+</table>
+
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
